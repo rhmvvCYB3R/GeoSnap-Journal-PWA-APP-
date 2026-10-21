@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GeoSnap App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>GS Journal</title>
   <link rel="stylesheet" href="../css/index.css">
   <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#ffffff"> 
 </head>
 <body>
 
   <div id="offline-banner" class="banner hidden">
-    You are offline. Saved notes are still available.
+    No network. Working locally 🚀
   </div>
 
   <header>
@@ -18,58 +19,61 @@
   </header>
 
   <main>
-    <!-- View 1 -->
     <section id="view-feed" class="view active">
-      <h2>Recent Notes</h2>
+      <h2>Feed</h2>
       <div id="notes-list" class="notes-list"></div>
     </section>
 
-    <!-- View 2 -->
     <section id="view-create" class="view">
-      <h2>Add New Note</h2>
+      <h2>New Entry</h2>
       <form id="note-form">
-        <textarea id="note-text" placeholder="Type your note here..." required></textarea>
+        <textarea id="note-text" placeholder="What's happening?" required></textarea>
 
         <div class="media-box">
-          <button type="button" id="btn-location">Get Location</button>
+          <button type="button" id="btn-location">📍 Attach Location</button>
           <span id="location-status" class="status-info"></span>
 
-          <button type="button" id="btn-camera">Open Camera</button>
+          <button type="button" id="btn-camera">📸 Open Camera</button>
           <video id="camera" autoplay playsinline class="hidden"></video>
           <button type="button" id="btn-snap" class="hidden">Take Photo</button>
           <canvas id="canvas" class="hidden"></canvas>
-          <img id="photo-preview" class="hidden" alt="Preview">
+          <img id="photo-preview" class="hidden">
         </div>
 
         <button type="submit" class="btn-submit">Save Note</button>
       </form>
     </section>
 
-    <!-- View 3 -->
     <section id="view-info" class="view">
       <h2>About Project</h2>
-      <p>Simple offline PWA note taking app with photo and GPS location tagging.</p>
+      <p>Simple offline PWA for taking notes with photos and coordinates.</p>
       
       <div class="info-box">
-        <h3>Used Native APIs:</h3>
+        <h3>Under the hood:</h3>
         <ul>
-          <li><strong>Geolocation API:</strong> used to attach current GPS coords to the note.</li>
-          <li><strong>MediaDevices API:</strong> used to access device camera and take pictures.</li>
+          <li>Geolocation API (coordinates)</li>
+          <li>MediaDevices API (camera)</li>
+          <li>Service Worker + Cache (offline)</li>
         </ul>
       </div>
 
-      <div class="info-box" style="margin-top:10px;">
+      <div class="info-box">
         <p>Status: <span id="net-status">Online</span></p>
-      </div>
+    </div>
+
+    <div class="who-am-i">
+        <p>This PWA app was created by "Yusif Rahimov || Student ID -- 53206</p>
+    </div>
+          
     </section>
   </main>
 
   <nav class="bottom-nav">
-    <button class="nav-item active" data-target="view-feed">Notes</button>
+    <button class="nav-item active" data-target="view-feed">Feed</button>
     <button class="nav-item" data-target="view-create">Add</button>
-    <button class="nav-item" data-target="view-info">About</button>
+    <button class="nav-item" data-target="view-info">Info</button>
   </nav>
 
-  <script src="app.js"></script>
+  <script src="../scripts/index.js"></script>
 </body>
 </html>

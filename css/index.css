@@ -1,0 +1,301 @@
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #334155;
+  --text-light: #64748b;
+  --primary: #14b8a6; 
+  --primary-hover: #0d9488;
+  --border: #e2e8f0;
+  --radius: 20px;
+  --shadow: 0 8px 24px rgba(149, 157, 165, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  padding-bottom: 90px;
+  min-height: 100vh;
+}
+
+.banner {
+  background: #fbbf24;
+  color: #78350f;
+  text-align: center;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none !important;
+}
+
+header {
+  background: var(--card);
+  padding: 18px;
+  text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+header h1 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+main {
+  padding: 24px 16px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.view {
+  display: none;
+  animation: fade 0.3s ease;
+}
+
+.view.active {
+  display: block;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  background: #f1f5f9;
+  color: var(--text);
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 15px;
+  margin-bottom: 12px;
+  resize: none;
+  transition: all 0.2s;
+}
+
+textarea:focus {
+  outline: none;
+  background: var(--card);
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.15);
+}
+
+.media-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+button {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  transition: all 0.2s;
+}
+
+button:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button.btn-submit {
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(20, 184, 166, 0.25);
+}
+
+button.btn-submit:hover {
+  background: var(--primary-hover);
+}
+
+video, canvas, img {
+  width: 100%;
+  border-radius: 16px;
+  margin-top: 8px;
+  object-fit: cover;
+}
+
+.status-info {
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 500;
+  padding-left: 4px;
+}
+
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.note-card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0,0,0,0.02);
+}
+
+.note-card p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.note-card img {
+  max-height: 240px;
+  margin-top: 16px;
+}
+
+.note-date {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.info-box {
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-top: 16px;
+}
+
+.info-box h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.info-box ul {
+  padding-left: 20px;
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* табы */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  display: flex;
+  border-top: 1px solid var(--border);
+  padding-bottom: env(safe-area-inset-bottom); /* для айфонов  */
+}
+
+.nav-item {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 16px 8px;
+  color: var(--text-light);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.nav-item.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.who-am-i {
+  position: relative;
+  margin-top: 30px;
+  padding: 16px;
+  background: #0f172a; /* Тёмный фон, чтобы огонь читался */
+  border-radius: 16px;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Огненный текст */
+.who-am-i p {
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0;
+  text-shadow: 0 0 5px #ff5a00, 0 0 10px #ff9a00;
+  animation: fire-text 1.5s infinite alternate;
+}
+
+.who-am-i::before {
+  content: "";
+  position: absolute;
+  top: -3px; 
+  left: -3px; 
+  right: -3px; 
+  bottom: -3px;
+  /* Градиент из цветов пламени */
+  background: linear-gradient(90deg, #ff0000, #ff5a00, #ff9a00, #ffce00, #ff5a00, #ff0000);
+  background-size: 200% 200%;
+  border-radius: 18px;
+  z-index: -2;
+  filter: blur(8px); /* Размытие для эффекта свечения */
+  animation: fire-border 2s linear infinite;
+}
+
+.who-am-i::after {
+  content: "";
+  position: absolute;
+  top: 0; 
+  bottom: 0; 
+  left: 0; 
+  right: 0;
+  background: #0f172a;
+  border-radius: 16px;
+  z-index: -1;
+}
+
+@keyframes fire-border {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes fire-text {
+  0% { text-shadow: 0 0 4px #ff5a00, 0 0 8px #ff9a00; }
+  100% { text-shadow: 0 0 8px #ff5a00, 0 0 15px #ff9a00, 0 0 25px #ffce00; }
+}
