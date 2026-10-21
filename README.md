@@ -1,26 +1,37 @@
 # GeoSnap Journal (PWA)
 
-A Progressive Web Application built for taking quick notes paired with camera photos and current GPS coordinates.
+Created by Yusif Rahimov (Student ID: 53206).
 
-- **Live Application URL:** [Insert your deployed HTTPS link here, e.g., GitHub Pages]
+**Live Application URL:** [ here will be url]
 
-## Technologies Used
-- HTML5, CSS3, JavaScript (ES6+)
-- Service Workers & Cache API
-- Web App Manifest (PWA)
+## Project Overview
+GeoSnap is a Progressive Web Application (PWA) that allows users to create visual journal entries by capturing photos and attaching real-time GPS coordinates. The application is fully responsive and designed to work seamlessly offline.
+
+## Application Views
+The app consists of three main views with a consistent flow and bottom navigation:
+1. **Feed:** Displays all locally saved entries (text, photo, date, and coordinates).
+2. **Create:** A form interface to interact with device hardware (camera, GPS) and save a new note.
+3. **Info:** Information about the app, active native APIs, network status, and author details.
 
 ## Native Device Features
-1. **Geolocation API:** Retrieves real-time GPS location coordinates attached to created notes.
-2. **MediaDevices API (Camera):** Accesses device cameras to stream video and capture snapshots directly within the app.
+This application utilizes two native web APIs to enhance user experience:
+1. **Geolocation API (`navigator.geolocation`):** Used to retrieve the user's current GPS coordinates (latitude and longitude) to attach real-world location metadata to the journal entry.
+2. **MediaDevices API (`navigator.mediaDevices.getUserMedia`):** Accesses the device's camera stream to allow users to take a snapshot directly within the application's interface without uploading external files.
 
-## Offline Capabilities & Caching Strategy
-- **Service Worker:** Manages asset caching to ensure the app loads seamlessly without an active internet connection.
-- **Caching Strategy:** Uses a **Cache First** strategy for core application assets (`index.html`, `styles.css`, `app.js`, `manifest.json`).
-  - *Justification:* Static core assets rarely change during runtime. Returning cached assets guarantees instant startup speed and offline availability.
-- **Offline Notification:** An offline banner alerts users when connection is lost, while local entries stored in `localStorage` remain functional.
+## Caching Strategy
+The application implements a Service Worker (`sw.js`) using the **Cache First, Fallback to Network** strategy for its core assets.
 
-## Local Setup Instructions
-1. Clone or download the repository.
-2. Serve the directory using a local web server (e.g., VS Code *Live Server* extension) because Service Workers require HTTPS or `localhost`.
-3. Open `http://localhost:5500` in Google Chrome or any Web API compliant browser.
+- **Strategy Justification:** Static resources (`index.html`, `index.css`, `index.js`, `manifest.json`, and `icon.png`) rarely change during runtime. Serving them from the cache first guarantees an instant load time and ensures the application shell remains fully functional even without an internet connection. Dynamic user-generated data (notes and photos) is persisted locally via `localStorage`, making the app completely independent of the network.
 
+## Technologies & Dependencies
+- **Core:** HTML5, CSS3, Vanilla JavaScript (ES6+)
+- **PWA Features:** Service Worker API, Cache Storage API, Web App Manifest
+- **Storage:** Web Storage API (`localStorage`)
+- **Dependencies:** None. The project relies entirely on native browser features without any external libraries or frameworks.
+
+## How to Run Locally
+1. Clone the repository to your local machine.
+2. Since Service Workers require a secure context (HTTPS) or `localhost`, you must serve the files using a local web server. 
+   - *Recommended:* Use the "Live Server" extension in VS Code, Node's `http-server`, or Python's `http.server`.
+3. Open the provided `localhost` URL in your browser.
+*(Note: Opening the `index.html` file directly via the `file://` protocol will fail to register the Service Worker).*
