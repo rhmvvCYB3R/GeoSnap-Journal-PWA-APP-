@@ -35,3 +35,9 @@ The application implements a Service Worker (`sw.js`) using the **Cache First, F
    - *Recommended:* Use the "Live Server" extension in VS Code, Node's `http-server`, or Python's `http.server`.
 3. Open the provided `localhost` URL in your browser.
 *(Note: Opening the `index.html` file directly via the `file://` protocol will fail to register the Service Worker).*
+<img width="1151" height="2560" alt="image" src="https://github.com/user-attachments/assets/479a039a-aa04-4411-aa60-de206df00fe4" />
+<img width="1151" height="2560" alt="image" src="https://github.com/user-attachments/assets/3412ed60-9469-448a-b504-6d98932b634a" />
+<img width="1151" height="2560" alt="image" src="https://github.com/user-attachments/assets/617b6e9b-3bf4-45bd-9f2b-74547daa51cc" />
+
+
+
