@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeoSnap App</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+  <div id="offline-banner" class="banner hidden">
+    You are offline. Saved notes are still available.
+  </div>
+
+  <header>
+    <h1>GeoSnap Journal</h1>
+  </header>
+
+  <main>
+    <!-- View 1 -->
+    <section id="view-feed" class="view active">
+      <h2>Recent Notes</h2>
+      <div id="notes-list" class="notes-list"></div>
+    </section>
+
+    <!-- View 2 -->
+    <section id="view-create" class="view">
+      <h2>Add New Note</h2>
+      <form id="note-form">
+        <textarea id="note-text" placeholder="Type your note here..." required></textarea>
+
+        <div class="media-box">
+          <button type="button" id="btn-location">Get Location</button>
+          <span id="location-status" class="status-info"></span>
+
+          <button type="button" id="btn-camera">Open Camera</button>
+          <video id="camera" autoplay playsinline class="hidden"></video>
+          <button type="button" id="btn-snap" class="hidden">Take Photo</button>
+          <canvas id="canvas" class="hidden"></canvas>
+          <img id="photo-preview" class="hidden" alt="Preview">
+        </div>
+
+        <button type="submit" class="btn-submit">Save Note</button>
+      </form>
+    </section>
+
+    <!-- View 3 -->
+    <section id="view-info" class="view">
+      <h2>About Project</h2>
+      <p>Simple offline PWA note taking app with photo and GPS location tagging.</p>
+      
+      <div class="info-box">
+        <h3>Used Native APIs:</h3>
+        <ul>
+          <li><strong>Geolocation API:</strong> used to attach current GPS coords to the note.</li>
+          <li><strong>MediaDevices API:</strong> used to access device camera and take pictures.</li>
+        </ul>
+      </div>
+
+      <div class="info-box" style="margin-top:10px;">
+        <p>Status: <span id="net-status">Online</span></p>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-target="view-feed">Notes</button>
+    <button class="nav-item" data-target="view-create">Add</button>
+    <button class="nav-item" data-target="view-info">About</button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
