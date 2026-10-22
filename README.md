@@ -2,7 +2,7 @@
 
 Created by Yusif Rahimov (Student ID: 53206).
 
-**Live Application URL:** [ https://github.com/rhmvvCYB3R/GeoSnap-Journal-PWA-APP- ]
+**Live Application URL:** [ https://rhmvvcyb3r.github.io/GeoSnap-Journal-PWA-APP-/ ]
 
 ## Project Overview
 GeoSnap is a Progressive Web Application (PWA) that allows users to create visual journal entries by capturing photos and attaching real-time GPS coordinates. The application is fully responsive and designed to work seamlessly offline.
